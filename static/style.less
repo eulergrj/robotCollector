@@ -1,0 +1,117 @@
+body{
+    margin:0;
+    padding: 0;
+}
+
+.bg{
+    width: 100vw;
+    height: 100vh;
+    background-color:seagreen;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 !important;
+}
+
+.options-wrap{
+    height: 100%;
+    margin: 0 !important;
+}
+
+.btn-active{
+    background-color: red !important;
+    border-color: red !important;
+    color: #fff !important;
+}
+
+.matrix-wrap{
+    background: #fff;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.log{
+    position: absolute;
+    bottom: 30px;
+    color: #fff;
+}
+.matrix{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    position: relative;
+
+    .rows, .lines{
+        position: absolute;
+        z-index: 999;
+        display: flex;
+    }
+    .rows{
+        top: -15px;
+        left: 15px;
+        width: 100%;
+        height: 10px;
+        .r{
+            width: 40px;
+            font-size: 12px;
+        }
+    }
+    .lines{
+        top: 15px;
+        left: -15px;
+        width: 40px;
+        height: 100%;
+        flex-wrap: wrap;
+        .l{
+            width: 40px;
+            font-size: 12px;
+        }
+    }
+
+    li{
+        width: 40px;
+        height: 40px;
+        background: #ccc;
+        border: 1px solid rgb(168, 168, 168);
+        box-sizing: border-box;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before{
+            font-size: 25px;
+            font-weight: 100;
+            color: #fff;
+        }
+
+        &.type-obstacle{background-color: #444 !important}
+        &.type-box{background-color:sienna !important; &::before{content: 'B'}}
+        &.type-storage{ background-color: indigo !important; &::before{content: 'S'} }
+        &.type-robot{background-color: green !important; &::before{content: 'R'}}
+
+        &:hover{
+            &::after{
+                content: '';
+                position: absolute;
+                left: 0;
+                right: 0;
+                background-color: red;
+                opacity: .3;
+                width: 100%;
+                height: 100%;
+                display: block;
+            }    
+        }
+    }
+}
